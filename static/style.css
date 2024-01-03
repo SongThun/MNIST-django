@@ -1,0 +1,30 @@
+/* body {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 100;
+    margin-top:175px;
+} */
+body {
+    /* display: flex; */
+    /* justify-content: center;
+    align-items: center;  */
+    height: 100;
+    margin: 100px;
+}
+.container{
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+canvas#drawCanvas {
+    border: 1px solid black;
+    cursor: crosshair;
+}
+
+button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+}

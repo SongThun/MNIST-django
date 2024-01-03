@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handwritten Digit Recognition</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <!-- <style>
+        .container{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+    </style> -->
+    <div class="container">
+        
+        <div style="text-align: center;">
+            <h1>Digit Recognition</h1>
+            <h3>Draw your digit</h3>
+            <canvas id="drawCanvas" width="280" height="280" class="column" ></canvas>
+            
+            <form action="" method="POST" id="canvas-form">
+                {% csrf_token %}
+                <input type="hidden" name="image" id="hiddenData" />
+                <button type="submit" name="submit-canvas" onclick="sendCanvas('canvas-form', 'hiddenData')">Predict</button>
+                <button type="button" id="clearButton" onclick="clearCanvas()">Clear</button>
+            </form>
+        </div>
+        
+
+        <div>
+        {% block content %}
+            
+        {% endblock content %}
+        </div>
+
+        
+    </div>
+    
+    <script src="{% static 'script.js' %}"></script>
+    <script>
+        function sendCanvas(form_id, img_name){
+            var canvas = document.getElementById('drawCanvas');
+            document.getElementById(img_name).value = canvas.toDataURL('image/png');
+            document.forms[form_id].submit(function() { return false; });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    
+    <h1>Prediction</h1>
+    {%if img_url %}
+    <h3>{{result}}</h3>
+    {% endif %}
+    <img class="column" src="{{img_url}}">
+    {% if result != 'Blank canvas - No prediction' %}
+    <form action="" method="POST" name="confirm-form">
+        <!-- <input type="hidden" name="image" id="pending-img" /> -->
+        <button type="submit" name="error-detect">Detect Wrong Prediction</button>
+    </form>
+    {% endif %}
+
+{% endblock content %}
